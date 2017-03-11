@@ -1,0 +1,7 @@
+%{
+#include "hpp.hpp"
+%}
+%option main
+%%
+#[^\n]*\n	{}		/* # comment */
+

@@ -18,3 +18,12 @@ Program build requires GNU GCC toolchain installed (MinGW for win32):
 - flex
 - bison
 
+### Samples used from
+
+http://www.helmancnc.com/haas-cnc/
+
+### Principles
+
+- all .nc code will be bypassed as is
+- # comments will be removed from target.nc
+
