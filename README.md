@@ -12,5 +12,9 @@ Extends ISO7 (G-code) programming languages with extra functionality.
 
 ### Requirements
 
-Program build requires GNU GCC toolchain installed (MinGW for win32)
+Program build requires GNU GCC toolchain installed (MinGW for win32):
+- g++ compiler
+- make
+- flex
+- bison
 
