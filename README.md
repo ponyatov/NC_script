@@ -26,4 +26,6 @@ http://www.helmancnc.com/haas-cnc/
 
 - all .nc code will be bypassed as is
 - # comments will be removed from target.nc
+- all magic happens in {brackets}:
++ commands will be reformatted in form compatible with selected .machine
 

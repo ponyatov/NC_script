@@ -1,7 +1,25 @@
 %{
 #include "hpp.hpp"
+string LexString;
 %}
-%option main
+%option noyywrap yylineno
+%x s
+%x comment
 %%
-#[^\n]*\n	{}		/* # comment */
+#[^\n]*\n+	{}										/* # comment */
+<s>\(		{BEGIN(comment);LexString="";}
+<comment>\)	{BEGIN(s); yylval.o = new Comment(LexString); return COMMENT;}
+<comment>.	{LexString += yytext[0]; }
+
+\{[ \n]+	{BEGIN(s);}
+<s>\}[ \n]+	{BEGIN(INITIAL);}
+
+<s>[0-9]+	TOC(Int,INT)
+
+<s>[oO]		TOC(Sym,CMD_O)
+<s>[tT]		TOC(Sym,CMD_T)
+<s>[mM]		TOC(Sym,CMD_M)
+<s>[gG]		TOC(Sym,CMD_G)
+
+<s>\n		{}
 

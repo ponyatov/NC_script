@@ -3,4 +3,5 @@
 *.exe
 *.log
 *.nc
+ypp.tab.?pp
 lex.yy.c

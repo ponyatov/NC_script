@@ -1,0 +1,15 @@
+%{
+#include "hpp.hpp"
+%}
+%defines %union { Sym*o; }
+%token <o> INT COMMENT
+%token <o> CMD_O CMD_T CMD_G CMD_M
+%type <o> cmd
+%%
+REPL : | REPL cmd	{ cout << $2->dump() << endl; }
+cmd : CMD_O INT { $$=new Program($2); }
+cmd : CMD_T INT { $$=new Tool($2); }
+cmd : CMD_M INT { $$=$1; $$->push($2); }
+cmd : CMD_G INT { $$=$1; $$->push($2); }
+cmd : COMMENT
+
